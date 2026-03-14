@@ -22,6 +22,9 @@ vim.g.maplocalleader = "\\"
 require("lazy").setup({
     spec = {
         { import = "plugins" },
+        { "EdenEast/nightfox.nvim", opts = { options = { transparent = true } } },
     },
     checker = { enabled = true },
 })
+
+vim.cmd.colorscheme("nightfox")
