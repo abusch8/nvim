@@ -13,8 +13,19 @@ return {
     {
         "neovim/nvim-lspconfig",
         config = function()
+            local configs = {
+                lua_ls = {
+                    settings = {
+                        Lua = {
+                            diagnostics = {
+                                globals = { "vim" },
+                            },
+                        },
+                    },
+                }
+            }
             for _, server in ipairs(require("mason-lspconfig").get_installed_servers()) do
-                vim.lsp.config(server, {})
+                vim.lsp.config(server, configs[server] or {})
             end
         end,
     },
