@@ -1,3 +1,17 @@
+local function search_count()
+    local search = vim.fn.getreg("/")
+    if search == "" then
+        return ""
+    end
+
+    local count = vim.fn.searchcount({ maxcount = 0, recompute = 1 })
+    if count.total > 0 then
+        return string.format("%d/%d", count.current, count.total)
+    else
+        return ""
+    end
+end
+
 local function show_macro_recording()
     local recording_register = vim.fn.reg_recording()
     if recording_register == "" then
@@ -24,7 +38,7 @@ vim.api.nvim_create_autocmd("RecordingLeave", {
 
 return {
     {
-        'nvim-lualine/lualine.nvim',
+        "nvim-lualine/lualine.nvim",
         opts = {
             options = {
                 component_separators = "",
@@ -58,7 +72,12 @@ return {
                         fmt = show_macro_recording,
                     },
                 },
-                lualine_c = { "filename" },
+                lualine_c = {
+                    {
+                        "filename",
+                        path = 1,
+                    },
+                },
                 lualine_x = {
                     {
                         "encoding",
@@ -75,7 +94,16 @@ return {
                         "filetype",
                     },
                 },
-                lualine_y = { "progress", "selectioncount" },
+                lualine_y = {
+                    {
+                        "search",
+                        fmt = search_count,
+                    },
+                    {
+                        "progress",
+                        "selectioncount"
+                    }
+                },
                 lualine_z = { "location" },
             },
         },
