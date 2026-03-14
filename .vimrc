@@ -5,8 +5,9 @@ set nocompatible
 
 colorscheme torte
 
+let mapleader = " "
+
 " Appearance
-set termguicolors
 set title
 set laststatus=2
 set statusline=
@@ -65,9 +66,12 @@ set nowritebackup
 set nospell
 set spelllang=en_us
 
-" Keymaps
-let mapleader = " "
+" Paste in visual mode without overwriting the yank register
 vnoremap p "_dP
+
+" Disable single 'q' recording, use 'qq' instead
+nnoremap q <Nop>
+nnoremap qq q
 
 " Clear trailing white space on write
 autocmd BufWritePre * %s/\s\+$//e
