@@ -1,4 +1,4 @@
-local builtin = require('telescope.builtin')
+local builtin = require("telescope.builtin")
 
 local function find_files()
     builtin.find_files({
@@ -19,17 +19,17 @@ end
 
 vim.keymap.set("n", "<C-p>", find_files)
 
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = 'Telescope help tags' })
 
 return {
     {
-        'nvim-telescope/telescope.nvim', version = '*',
+        "nvim-telescope/telescope.nvim", version = "*",
         dependencies = {
-            'nvim-lua/plenary.nvim',
-            { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+            "nvim-lua/plenary.nvim",
+            { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
         },
         opts = {
             pickers = {
