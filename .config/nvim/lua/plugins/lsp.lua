@@ -40,5 +40,6 @@ return {
                 enable = true,
             },
         },
+        run = ":TSUpdate",
     },
 }

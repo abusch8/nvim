@@ -7,8 +7,10 @@ return {
             },
         },
     },
-    -- {
-    --     "folke/tokyonight.nvim",
-    --     opts = {},
-    -- },
+    {
+        "scottmckendry/cyberdream.nvim",
+        opts = {
+            transparent = true,
+        },
+    },
 }
