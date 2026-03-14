@@ -65,6 +65,8 @@ set nowritebackup
 set nospell
 set spelllang=en_us
 
+" Keymaps
+let mapleader = " "
 vnoremap p "_dP
 
 " Clear trailing white space on write

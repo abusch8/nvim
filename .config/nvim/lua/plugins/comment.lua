@@ -2,9 +2,8 @@ return {
     {
         "numToStr/Comment.nvim",
         opts = {
-            padding = true,
             toggler = {
-                block = "gvc",
+                block = "gvv",
             },
             opleader = {
                 block = "gv",
