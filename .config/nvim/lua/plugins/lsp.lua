@@ -22,7 +22,11 @@ return {
                             },
                         },
                     },
-                }
+                },
+                bashls = {
+                    cmd = { "bash-language-server", "start" },
+                    filetypes = { "bash", "sh" },
+                },
             }
             for _, server in ipairs(require("mason-lspconfig").get_installed_servers()) do
                 vim.lsp.config(server, configs[server] or {})
