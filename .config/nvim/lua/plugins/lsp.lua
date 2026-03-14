@@ -13,10 +13,8 @@ return {
     {
         "neovim/nvim-lspconfig",
         config = function()
-            local lspconfig = require("lspconfig")
-            local servers = { "lua_ls", "bashls", "pyright" }
-            for _, lsp in ipairs(servers) do
-                lspconfig[lsp].setup({})
+            for _, server in ipairs(require("mason-lspconfig").get_installed_servers()) do
+                vim.lsp.config(server, {})
             end
         end,
     },
