@@ -12,5 +12,7 @@ return {
         opts = {
             transparent = true,
         },
+        lazy = false,
+        priority = 1000,
     },
 }

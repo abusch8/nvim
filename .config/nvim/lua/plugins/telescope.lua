@@ -9,6 +9,8 @@ local function find_files()
         },
         file_ignore_patterns = {
             ".git",
+            ".npm",
+            ".cache",
             "build",
             "dist",
             "node_modules",
