@@ -5,6 +5,7 @@ vim.opt.termguicolors = true
 vim.diagnostic.config({
     virtual_text = {
         enable = true,
+        prefix = "●",
         severity = {
             vim.diagnostic.severity.ERROR,
             vim.diagnostic.severity.WARN,
