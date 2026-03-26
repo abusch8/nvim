@@ -19,6 +19,7 @@ return {
                     file_ignore_patterns = {
                         ".git",
                         ".npm",
+                        ".venv",
                         "build",
                         "dist",
                         "node_modules",
