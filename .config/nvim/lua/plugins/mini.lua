@@ -5,7 +5,16 @@ return {
     },
     {
         "echasnovski/mini.pairs",
-        opts = {},
+        opts = {
+            mappings = {
+                ["("] = { action = "open",  pair = "()", neigh_pattern = "[^\\][%s%)%]%}]" },
+                ["["] = { action = "open",  pair = "[]", neigh_pattern = "[^\\][%s%)%]%}]" },
+                ["{"] = { action = "open",  pair = "{}", neigh_pattern = "[^\\][%s%)%]%]]" },
+                ['"'] = false,
+                ["'"] = false,
+                ["`"] = false,
+            },
+        },
     },
     {
         "nvim-mini/mini.surround",
