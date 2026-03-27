@@ -14,7 +14,7 @@ export PATH="${HOME}/bin:${PATH}"
 export PAGER=less
 
 function ff {
-    (( $# >= 1 )) && find -L "${2:-.}" -type f -name "${1}" 2>/dev/null
+    (( $# >= 1 )) && find -L "${2:-.}" -type f -path "${1}" 2>/dev/null
 }
 
 function fz {
@@ -26,7 +26,7 @@ function fs {
 }
 
 function vf {
-    (( $# >= 1 )) && find -L "${2:-.}" -type f -name "${1}" -exec nvim {} + 2>/dev/null
+    (( $# >= 1 )) && find -L "${2:-.}" -type f -path "${1}" -exec nvim {} + 2>/dev/null
 }
 
 function vz {
