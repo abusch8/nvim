@@ -1,6 +1,16 @@
 #!/bin/bash
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-ln -sf $DIR/.vimrc ~/.vimrc
-ln -sf $DIR/.config/nvim ~/.config/nvim
-ln -sf $DIR/.tmux.conf ~/.tmux.conf
-ln -sf $DIR/.config/tmux ~/.config/tmux
+
+function init {
+    echo "removing ${2}"
+    rm -rf ${2}
+    echo "linking ${1} -> ${2}"
+    ln -s ${1} ${2}
+}
+
+init $DIR/.vimrc        $HOME/.vimrc
+init $DIR/.config/nvim  $HOME/.config/nvim
+init $DIR/.bashrc       $HOME/.bashrc
+init $DIR/.tmux.conf    $HOME/.tmux.conf
+init $DIR/.config/tmux  $HOME/.config/tmux
+
