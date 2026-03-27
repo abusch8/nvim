@@ -11,6 +11,7 @@ shopt -s extglob
 
 export TERM=xterm-256color
 export PATH="${HOME}/bin:${PATH}"
+export PAGER=less
 
 function ff {
     (( $# >= 1 )) && find -L "${2:-.}" -type f -name "${1}" 2>/dev/null

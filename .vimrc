@@ -81,6 +81,7 @@ noremap gb :bn<CR>
 noremap gB :bp<CR>
 autocmd filetype netrw nmap <buffer> gb :bn<CR>
 autocmd filetype netrw nmap <buffer> gB :bp<CR>
+nnoremap <Leader>b :ls<CR>:b<Space>
 
 " Toggle line numbers
 noremap <leader>r :set relativenumber!<CR>
