@@ -89,5 +89,6 @@ noremap <leader>R :set relativenumber! number!<CR>
 " Netrw
 let g:netrw_banner=0
 let g:netrw_bufsettings='set number relativenumber'
+let g:netrw_liststyle=1
 autocmd FileType netrw setlocal nocursorline
 autocmd FileType netrw setlocal nomodifiable
