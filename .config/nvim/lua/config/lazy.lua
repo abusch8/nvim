@@ -27,7 +27,6 @@ require("lazy").setup({
     },
     checker = {
         enabled = true,
-        notify = false,
     },
     ui = {
         icons = {
@@ -49,12 +48,7 @@ require("lazy").setup({
             source = "",
             start = "",
             task = "",
-            list = {
-                "",
-                "",
-                "",
-                "",
-            },
+            list = { "", "", "", "" },
         },
     },
 })
