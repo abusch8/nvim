@@ -1,5 +1,9 @@
 return {
     {
+        "echasnovski/mini.comment",
+        opts = {},
+    },
+    {
         "echasnovski/mini.pairs",
         opts = {},
     },
