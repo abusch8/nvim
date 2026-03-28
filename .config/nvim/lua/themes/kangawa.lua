@@ -1,7 +1,7 @@
 return {
     {
         "rebelot/kanagawa.nvim",
-        enabled = true,
+        enabled = (_G.THEME and string.find(_G.THEME, "kanagawa")) ~= nil,
         opts = {
             transparent = true,
             colors = {

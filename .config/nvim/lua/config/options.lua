@@ -13,5 +13,5 @@ vim.diagnostic.config({
     },
 })
 
-vim.cmd.colorscheme("kanagawa")
+vim.cmd.colorscheme(_G.THEME)
 
