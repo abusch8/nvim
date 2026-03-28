@@ -1,7 +1,12 @@
 return {
     {
         "rebelot/kanagawa.nvim",
-        enabled = (_G.THEME and string.find(_G.THEME, "kanagawa")) ~= nil,
+        enabled = vim.tbl_contains({
+            "kanagawa",
+            "kanagawa-dragon",
+            "kanagawa-lotus",
+            "kanagawa-wave",
+        }, _G.THEME),
         opts = {
             transparent = true,
             colors = {

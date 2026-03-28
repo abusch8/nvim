@@ -10,11 +10,29 @@ cat << 'EOF'
 
 EOF
 
+force=false
+for arg in "$@"; do
+    case "$arg" in
+        --force|-f) force=true ;;
+    esac
+done
+
 function symlink {
-    echo "removing $2"
-    rm -rf "$2"
-    echo "linking $1 -> $2"
-    ln -s "$1" "$2"
+    local src="$1"
+    local dest="$2"
+    if [[ -e "$dest" || -L "$dest" ]]; then
+        if ! $force; then
+            read -r -p "$dest already exists, overwrite? (y/n): " ans
+            [[ "$ans" =~ ^[Yy]$ ]] || {
+                echo "skipping $dest"
+                return
+            }
+        fi
+        echo "removing $dest"
+        rm -rf -- "$dest"
+    fi
+    echo "linking $src -> $dest"
+    ln -s -- "$src" "$dest"
 }
 
 function git_config {

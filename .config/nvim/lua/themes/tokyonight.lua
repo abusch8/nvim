@@ -1,7 +1,12 @@
 return {
     {
         "folke/tokyonight.nvim",
-        enabled = (_G.THEME and string.find(_G.THEME, "tokyonight")) ~= nil,
+        enabled = vim.tbl_contains({
+            "tokyonight-night",
+            "tokyonight-storm",
+            "tokyonight-day",
+            "tokyonight-moon",
+        }, _G.THEME),
         opts = {
             transparent = true,
         },
