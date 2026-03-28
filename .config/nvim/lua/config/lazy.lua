@@ -24,6 +24,9 @@ require("lazy").setup({
         {
             import = "plugins",
         },
+        {
+            import = "themes",
+        },
     },
     checker = {
         enabled = true,

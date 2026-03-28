@@ -104,7 +104,9 @@ return {
                         "selectioncount"
                     }
                 },
-                lualine_z = { "location" },
+                lualine_z = {
+                    "location",
+                },
             },
             inactive_sections = {
                 lualine_a = {},

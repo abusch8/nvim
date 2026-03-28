@@ -7,9 +7,9 @@ return {
         "echasnovski/mini.pairs",
         opts = {
             mappings = {
-                ["("] = { action = "open",  pair = "()", neigh_pattern = "[^\\][%s%)%]%}]" },
-                ["["] = { action = "open",  pair = "[]", neigh_pattern = "[^\\][%s%)%]%}]" },
-                ["{"] = { action = "open",  pair = "{}", neigh_pattern = "[^\\][%s%)%]%]]" },
+                ["("] = { action = "open", pair = "()", neigh_pattern = "[^\\][%s%)%]%}]" },
+                ["["] = { action = "open", pair = "[]", neigh_pattern = "[^\\][%s%)%]%}]" },
+                ["{"] = { action = "open", pair = "{}", neigh_pattern = "[^\\][%s%)%]%]]" },
                 ['"'] = false,
                 ["'"] = false,
                 ["`"] = false,

@@ -23,15 +23,12 @@ function git_config {
     git config --global "$1" "$2"
 }
 
-mkdir -p "$HOME/.config"
 mkdir -p "$HOME/.config/nvim"
-mkdir -p "$HOME/.config/tmux"
 
 symlink "$DIR/.bashrc"      "$HOME/.bashrc"
 symlink "$DIR/.vimrc"       "$HOME/.vimrc"
 symlink "$DIR/.tmux.conf"   "$HOME/.tmux.conf"
 symlink "$DIR/.config/nvim" "$HOME/.config/nvim"
-symlink "$DIR/.config/tmux" "$HOME/.config/tmux"
 
 git_config "core.autocrlf"  "false"
 git_config "core.editor"    "nvim"
