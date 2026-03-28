@@ -1,14 +1,15 @@
 #!/bin/bash
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+echo -e '\e[35m'
 cat << 'EOF'
  ______     __  __     ______     __    __     ______     ______     ______     ______
 /\  ___\   /\ \_\ \   /\  __ \   /\ "-./  \   /\  == \   /\  ___\   /\  == \   /\  ___\
 \ \ \____  \ \  __ \  \ \  __ \  \ \ \-./\ \  \ \  __<,  \ \  __\   \ \  __<,  \ \___  \
  \ \_____\  \ \_\ \_\  \ \_\ \_\  \ \_\ \ \_\  \ \_____\  \ \_____\  \ \_\ \_\  \/\_____\
   \/_____/   \/_/\/_/   \/_/\/_/   \/_/  \/_/   \/_____/   \/_____/   \/_/\/_/   \/_____/
-
 EOF
+echo -e '\e[0m'
 
 force=false
 for arg in "$@"; do
@@ -22,17 +23,19 @@ function symlink {
     local dest="$2"
     if [[ -e "$dest" || -L "$dest" ]]; then
         if ! $force; then
-            read -r -p "$dest already exists, overwrite? (y/n): " ans
-            [[ "$ans" =~ ^[Yy]$ ]] || {
+            ans="y"
+            read -r -p "$dest already exists, overwrite? [Y/n]: " ans
+            if [[ "$ans" =~ ^[Yy]$ ]]; then
                 echo "skipping $dest"
                 return
-            }
+            fi
         fi
         echo "removing $dest"
         rm -rf -- "$dest"
     fi
     echo "linking $src -> $dest"
     ln -s -- "$src" "$dest"
+    echo
 }
 
 function git_config {
@@ -57,4 +60,5 @@ git_config "http.sslVerify" "false"
 git_config "merge.tool"     "vimdiff"
 git_config "pull.rebase"    "false"
 
+echo
 echo "done"

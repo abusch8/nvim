@@ -4,7 +4,6 @@ MAGENTA='\[\e[35m\]'
 GREEN='\[\e[1;32m\]'
 RESET='\[\e[0m\]'
 
-# PS1="[${MAGENTA}\u${RESET}@${MAGENTA}\h${RESET} \W]\$ "
 PS1="${MAGENTA}\u${RESET}@${MAGENTA}\h${RESET}:\w\n${GREEN}\$${RESET} "
 
 shopt -s extglob
