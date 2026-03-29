@@ -7,6 +7,8 @@ return {
             "kanagawa-lotus",
             "kanagawa-wave",
         }, _G.THEME),
+        lazy = false,
+        priority = 1000,
         opts = {
             transparent = true,
             colors = {

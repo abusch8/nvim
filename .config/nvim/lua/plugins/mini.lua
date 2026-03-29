@@ -22,7 +22,7 @@ return {
     },
     {
         "nvim-mini/mini.splitjoin",
-        config = function ()
+        config = function()
             local splitjoin = require("mini.splitjoin")
 
             local add_trailing = splitjoin.gen_hook.add_trailing_separator()

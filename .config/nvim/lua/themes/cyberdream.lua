@@ -1,11 +1,8 @@
 return {
     {
-        "folke/tokyonight.nvim",
+        "scottmckendry/cyberdream.nvim",
         enabled = vim.tbl_contains({
-            "tokyonight-night",
-            "tokyonight-storm",
-            "tokyonight-day",
-            "tokyonight-moon",
+            "cyberdream",
         }, _G.THEME),
         lazy = false,
         priority = 1000,
