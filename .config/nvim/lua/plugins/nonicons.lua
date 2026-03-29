@@ -1,6 +1,6 @@
 return {
     {
-        "abusch8/nvim-web-devicons",
+        "abusch8/nvim-nonicons",
         enabled = _G.ENABLE_ICONS,
     }
 }
