@@ -12,6 +12,7 @@ return {
         config = function ()
             local telescope = require("telescope")
             local builtin = require("telescope.builtin")
+            local icons = require("icons")
 
             local function find_files()
                 builtin.find_files({
@@ -40,6 +41,11 @@ return {
             vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = 'Telescope help tags' })
 
             telescope.setup({
+                defaults = {
+                    prompt_prefix = "  " .. icons.get("telescope") .. "  ",
+                    selection_caret = " > ",
+                    entry_prefix = "   ",
+                },
                 pickers = {
                     find_files = {
                         hidden = true,
