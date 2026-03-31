@@ -31,7 +31,7 @@ function vf {
 }
 
 function vz {
-    (( $# >= 1 )) && find -L "${2:-.}" -type f -print0 2>/dev/null | xargs -0 grep -lIZ "${1}" | xargs -0 nvim
+    (( $# >= 1 )) && find -L "${2:-.}" -type f -print0 2>/dev/null | xargs -0 grep -lIZ "${1}" | xargs -0 nvim -c "/${1}"
 }
 
 alias ssh='ssh -q'
