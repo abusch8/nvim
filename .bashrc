@@ -20,11 +20,7 @@ alias ll='ls --color=auto -l'
 
 function ff {
     if (( $# < 1 )); then return 1; fi
-    while IFS= read -r file; do
-        if file -b --mime-type "$file" | grep -q "^text/"; then
-            echo "$file"
-        fi
-    done < <(find -L "${2:-.}" -type f -path "${1}" 2>/dev/null)
+    find -L "${2:-.}" -type f -path "${1}" -exec grep -Iq . {} \; -print 2>/dev/null
 }
 
 function fz {
@@ -39,17 +35,7 @@ function fs {
 
 function vf {
     if (( $# < 1 )); then return 1; fi
-
-    local -a matches=()
-    while IFS= read -r file; do
-        if file -b --mime-type "$file" | grep -q "^text/"; then
-            matches+=("$file")
-        fi
-    done < <(find -L "${2:-.}" -type f -path "${1}" 2>/dev/null)
-
-    if (( ${#matches[@]} == 0 )); then return 1; fi
-
-    nvim "${matches[@]}"
+    find -L "${2:-.}" -type f -path "${1}" -exec grep -Iq . {} \; -print0 2>/dev/null | xargs -0 nvim
 }
 
 function vz {
