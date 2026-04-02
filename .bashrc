@@ -12,29 +12,48 @@ export TERM=xterm-256color
 export PATH="${HOME}/bin:${PATH}"
 export PAGER=less
 export NVIM_THEME=kanagawa
-export NVIM_ENABLE_ICONS=1
-
-function ff {
-    (( $# >= 1 )) && find -L "${2:-.}" -type f -path "${1}" 2>/dev/null
-}
-
-function fz {
-    (( $# >= 1 )) && grep --color=auto -RIn "${2:-.}" -e "${1}" 2>/dev/null
-}
-
-function fs {
-    (( $# >= 2 )) && find -L "${3:-.}" -type f -print0 | xargs -0 sed -i.bak "s|${1}|${2}|g"
-}
-
-function vf {
-    (( $# >= 1 )) && find -L "${2:-.}" -type f -path "${1}" -exec nvim {} + 2>/dev/null
-}
-
-function vz {
-    (( $# >= 1 )) && find -L "${2:-.}" -type f -print0 2>/dev/null | xargs -0 grep -lIZ "${1}" | xargs -0 nvim -c "/${1}"
-}
+export NVIM_ENABLE_ICONS=0
 
 alias ssh='ssh -q'
 alias ls='ls --color=auto'
 alias ll='ls --color=auto -l'
+
+function ff {
+    if (( $# < 1 )); then return 1; fi
+    while IFS= read -r file; do
+        if file -b --mime-type "$file" | grep -q "^text/"; then
+            echo "$file"
+        fi
+    done < <(find -L "${2:-.}" -type f -path "${1}" 2>/dev/null)
+}
+
+function fz {
+    if (( $# < 1 )); then return 1; fi
+    grep --color=auto -RIn "${2:-.}" -e "${1}" 2>/dev/null
+}
+
+function fs {
+    if (( $# < 2 )); then return 1; fi
+    find -L "${3:-.}" -type f -print0 | xargs -0 sed -i.bak "s|${1}|${2}|g"
+}
+
+function vf {
+    if (( $# < 1 )); then return 1; fi
+
+    local -a matches=()
+    while IFS= read -r file; do
+        if file -b --mime-type "$file" | grep -q "^text/"; then
+            matches+=("$file")
+        fi
+    done < <(find -L "${2:-.}" -type f -path "${1}" 2>/dev/null)
+
+    if (( ${#matches[@]} == 0 )); then return 1; fi
+
+    nvim "${matches[@]}"
+}
+
+function vz {
+    if (( $# < 1 )); then return 1; fi
+    find -L "${2:-.}" -type f -print0 2>/dev/null | xargs -0 grep -lIZ "${1}" | xargs -0 nvim -c "/${1}"
+}
 
