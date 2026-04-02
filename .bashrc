@@ -28,6 +28,11 @@ function vf {
     find -L "${2:-.}" -type f -path "${1}" \( -empty -o -exec grep -Iq . {} \; \) -print0 2>/dev/null | xargs -0 nvim
 }
 
+function fd {
+    if (( $# < 1 )); then return 1; fi
+    find -L "${2:-.}" -type f -path "${1}" \( -empty -o -exec grep -Iq . {} \; \) -delete
+}
+
 function fz {
     if (( $# < 1 )); then return 1; fi
     grep --color=auto -RIn "${2:-.}" -e "${1}" 2>/dev/null
