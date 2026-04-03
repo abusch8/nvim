@@ -11,8 +11,6 @@ shopt -s extglob
 export TERM=xterm-256color
 export PATH="${HOME}/bin:${PATH}"
 export PAGER=less
-export NVIM_THEME=kanagawa
-export NVIM_ENABLE_ICONS=1
 
 alias ssh='ssh -q'
 alias ls='ls --color=auto'
