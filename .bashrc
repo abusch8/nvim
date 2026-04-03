@@ -11,12 +11,11 @@ shopt -s extglob
 export TERM=xterm-256color
 export PATH="${HOME}/bin:${PATH}"
 export PAGER=less
-export NVIM_THEME=kanagawa
-export NVIM_ENABLE_ICONS=0
 
 alias ssh='ssh -q'
 alias ls='ls --color=auto'
 alias ll='ls --color=auto -l'
+alias k='kubectl'
 
 function ff {
     if (( $# < 1 )); then return 1; fi
