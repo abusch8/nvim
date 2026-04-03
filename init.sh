@@ -59,6 +59,7 @@ git_config "color.status"   "always"
 git_config "http.sslVerify" "false"
 git_config "merge.tool"     "vimdiff"
 git_config "pull.rebase"    "false"
+git_config "alias.unstage"  "reset HEAD"
 
 echo
 echo "done"
