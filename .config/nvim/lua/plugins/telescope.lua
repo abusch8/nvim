@@ -40,9 +40,11 @@ return {
             vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = 'Telescope buffers' })
             vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = 'Telescope help tags' })
 
+            local icon = icons.get("telescope")
+
             telescope.setup({
                 defaults = {
-                    prompt_prefix = "  " .. icons.get("telescope") .. "  ",
+                    prompt_prefix = icon == "" and " " or " " .. icon .. " ",
                     selection_caret = " > ",
                     entry_prefix = "   ",
                 },
