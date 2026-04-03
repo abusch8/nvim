@@ -17,7 +17,6 @@ export NVIM_ENABLE_ICONS=1
 alias ssh='ssh -q'
 alias ls='ls --color=auto'
 alias ll='ls --color=auto -l'
-alias g='git'
 alias k='kubectl'
 
 function ff {
