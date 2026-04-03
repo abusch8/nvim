@@ -44,7 +44,7 @@ return {
 
             telescope.setup({
                 defaults = {
-                    prompt_prefix = icon == "" and " " or " " .. icon .. " ",
+                    prompt_prefix = icon == "" and " " or ("  " .. icon .. "  "),
                     selection_caret = " > ",
                     entry_prefix = "   ",
                 },
