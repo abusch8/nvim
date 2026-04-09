@@ -15,21 +15,22 @@ export PAGER=less
 alias ssh='ssh -q'
 alias ls='ls --color=auto'
 alias ll='ls --color=auto -l'
+alias vi='nvim'
 alias k='kubectl'
 
 function ff {
     if (( $# < 1 )); then return 1; fi
-    find -L "${2:-.}" -type f -path "${1}" \( -empty -o -exec grep -Iq . {} \; \) -print 2>/dev/null
+    find -L "${2:-.}" -type f -path "*${1}*" \( -empty -o -exec grep -Iq . {} \; \) -print 2>/dev/null
 }
 
 function vf {
     if (( $# < 1 )); then return 1; fi
-    find -L "${2:-.}" -type f -path "${1}" \( -empty -o -exec grep -Iq . {} \; \) -print0 2>/dev/null | xargs -0 nvim
+    find -L "${2:-.}" -type f -path "*${1}*" \( -empty -o -exec grep -Iq . {} \; \) -print0 2>/dev/null | xargs -0 nvim
 }
 
 function fd {
     if (( $# < 1 )); then return 1; fi
-    find -L "${2:-.}" -type f -path "${1}" \( -empty -o -exec grep -Iq . {} \; \) -delete
+    find -L "${2:-.}" -type f -path "*${1}*" -delete
 }
 
 function fz {
