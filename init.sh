@@ -57,7 +57,7 @@ git_config "core.eol"       "lf"
 git_config "core.pager"     "less -R"
 git_config "color.status"   "always"
 git_config "http.sslVerify" "false"
-git_config "merge.tool"     "vimdiff"
+git_config "merge.tool"     "nvimdiff"
 git_config "pull.rebase"    "false"
 git_config "alias.unstage"  "reset HEAD"
 
