@@ -9,7 +9,7 @@ PS1="${MAGENTA}\u${RESET}@${MAGENTA}\h${RESET}:\w\n${GREEN}\$${RESET} "
 shopt -s extglob
 
 export TERM=xterm-256color
-export PATH="${HOME}/bin:${PATH}"
+export PATH="${HOME}/bin:${HOME}/.local/share/nvim/mason/bin:${PATH}"
 export PAGER=less
 
 alias ssh='ssh -q'

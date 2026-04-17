@@ -14,6 +14,10 @@ return {
         "neovim/nvim-lspconfig",
         config = function()
             local configs = {
+                bashls = {
+                    cmd = { "bash-language-server", "start" },
+                    filetypes = { "bash", "sh" },
+                },
                 lua_ls = {
                     settings = {
                         Lua = {
@@ -22,10 +26,6 @@ return {
                             },
                         },
                     },
-                },
-                bashls = {
-                    cmd = { "bash-language-server", "start" },
-                    filetypes = { "bash", "sh" },
                 },
             }
             for _, server in ipairs(require("mason-lspconfig").get_installed_servers()) do

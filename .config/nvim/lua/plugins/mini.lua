@@ -17,10 +17,6 @@ return {
         },
     },
     {
-        "nvim-mini/mini.surround",
-        opts = {},
-    },
-    {
         "nvim-mini/mini.splitjoin",
         config = function()
             local splitjoin = require("mini.splitjoin")
