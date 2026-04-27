@@ -1,6 +1,8 @@
 #!/bin/bash
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+TPM_INSTALL_PATH="$HOME/.tmux/plugins/tpm"
+
 echo -e '\e[35m'
 cat << 'EOF'
  ______     __  __     ______     __    __     ______     ______     ______     ______
@@ -61,5 +63,13 @@ git_config "merge.tool"     "nvimdiff"
 git_config "pull.rebase"    "false"
 git_config "alias.unstage"  "reset HEAD"
 
+if [[ ! -d "$TPM_INSTALL_PATH" ]]; then
+    echo
+    echo "installing tmux plugin manager..."
+    mkdir -p "$TPM_INSTALL_PATH"
+    git clone https://github.com/tmux-plugins/tpm "$TPM_INSTALL_PATH"
+fi
+
 echo
 echo "done"
+
