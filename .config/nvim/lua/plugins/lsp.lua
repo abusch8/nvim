@@ -39,7 +39,10 @@ return {
             highlight = {
                 enable = true,
             },
+            indent = {
+                enable = true,
+            },
         },
-        run = ":TSUpdate",
+        build = ":TSUpdate",
     },
 }
