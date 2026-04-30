@@ -33,12 +33,20 @@ return {
                 })
             end
 
-            vim.keymap.set("n", "<C-p>", find_files)
+            local function live_grep()
+                vim.cmd("normal! *")
+                builtin.live_grep({
+                    default_text = vim.fn.expand("<cword>")
+                })
+            end
 
-            vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = 'Telescope find files' })
-            vim.keymap.set("n", "<leader>fz", builtin.live_grep, { desc = 'Telescope live grep' })
-            vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = 'Telescope buffers' })
-            vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = 'Telescope help tags' })
+            vim.keymap.set("n", "<C-p>", find_files)
+            vim.keymap.set("n", "<leader>f*", live_grep)
+
+            vim.keymap.set("n", "<leader>ff", builtin.find_files)
+            vim.keymap.set("n", "<leader>fz", builtin.live_grep)
+            vim.keymap.set("n", "<leader>fb", builtin.buffers)
+            vim.keymap.set("n", "<leader>fh", builtin.help_tags)
 
             local icon = icons.get("telescope")
 
