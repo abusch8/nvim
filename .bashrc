@@ -1,22 +1,28 @@
-[[ -f /etc/bashrc ]] && . /etc/bashrc
+[ -f /etc/bashrc ] && . /etc/bashrc
 
+BOLD='\[\e[1m\]'
+RED='\[\e[31m\]'
+GREEN='\[\e[32m\]'
 MAGENTA='\[\e[35m\]'
-GREEN='\[\e[1;32m\]'
 RESET='\[\e[0m\]'
 
-PS1="${MAGENTA}\u${RESET}@${MAGENTA}\h${RESET}:\w\n${GREEN}\$${RESET} "
+PS1_COLOR="${MAGENTA}"
 
-shopt -s extglob
+export DOTS_DIR=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
+source "${DOTS_DIR}/.env"
 
-export TERM=xterm-256color
-export PATH="${HOME}/bin:${HOME}/.local/share/nvim/mason/bin:${PATH}"
+PS1="${PS1_COLOR}\u${RESET}@${PS1_COLOR}\h${RESET}:\w\n${BOLD}${GREEN}\$${RESET} "
+
 export PAGER=less
+export PATH="${HOME}/bin:${HOME}/.local/share/nvim/mason/bin:${PATH}"
 
 alias ssh='ssh -q'
 alias ls='ls --color=auto'
 alias ll='ls --color=auto -l'
 alias vi='nvim'
 alias k='kubectl'
+
+shopt -s extglob
 
 function ff {
     if (( $# < 1 )); then return 1; fi

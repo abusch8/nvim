@@ -4,8 +4,8 @@ env.load_dotenv()
 DEFAULT_THEME = "kanagawa"
 DEFAULT_ENABLE_ICONS = false
 
-_G.THEME = env.get("THEME") or DEFAULT_THEME
-_G.ENABLE_ICONS = env.get("ENABLE_ICONS") == "1" or DEFAULT_ENABLE_ICONS
+_G.THEME = env.get("NVIM_THEME") or DEFAULT_THEME
+_G.ENABLE_ICONS = env.get("NVIM_ENABLE_ICONS") == "1" or DEFAULT_ENABLE_ICONS
 
 vim.cmd("source ~/.vimrc")
 

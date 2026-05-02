@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 TPM_INSTALL_PATH="$HOME/.tmux/plugins/tpm"
@@ -52,6 +52,7 @@ symlink "$DIR/.bashrc"      "$HOME/.bashrc"
 symlink "$DIR/.vimrc"       "$HOME/.vimrc"
 symlink "$DIR/.tmux.conf"   "$HOME/.tmux.conf"
 symlink "$DIR/.config/nvim" "$HOME/.config/nvim"
+symlink "$DIR/.env"         "$HOME/.config/nvim/.env"
 
 git_config "core.autocrlf"  "false"
 git_config "core.editor"    "nvim"
