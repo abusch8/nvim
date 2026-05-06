@@ -13,6 +13,5 @@ vim.diagnostic.config({
         },
     },
 })
-
 vim.cmd.colorscheme(_G.THEME)
 
