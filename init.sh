@@ -59,6 +59,7 @@ symlink "$DIR/.config/nvim" "$HOME/.config/nvim"
 symlink "$DIR/.env"         "$HOME/.config/nvim/.env"
 
 git_config "alias.unstage"  "reset HEAD"
+git_config "alias.uncommit" "reset HEAD^ --mixed"
 git_config "branch.sort"    "committerdate"
 git_config "core.autocrlf"  "false"
 git_config "core.editor"    "nvim"
