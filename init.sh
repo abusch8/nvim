@@ -48,6 +48,10 @@ function git_config {
 
 mkdir -p "$HOME/.config/nvim"
 
+if [[ ! -f "$DIR/.env" ]]; then
+    cp "$DIR/.env.example" "$DIR/.env"
+fi
+
 symlink "$DIR/.bashrc"      "$HOME/.bashrc"
 symlink "$DIR/.vimrc"       "$HOME/.vimrc"
 symlink "$DIR/.tmux.conf"   "$HOME/.tmux.conf"
