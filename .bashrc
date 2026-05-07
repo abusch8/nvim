@@ -36,7 +36,7 @@ function vf {
 
 function fd {
     if (( $# < 1 )); then return 1; fi
-    find -L "${2:-.}" -type f -path "*${1}*" -delete
+    find -L "${2:-.}" -type f -name "${1}" -delete
 }
 
 function fz {
@@ -50,7 +50,7 @@ function vz {
 }
 
 function fs {
-    if (( $# < 2 )); then return 1; fi
-    find -L "${3:-.}" -type f -print0 | xargs -0 sed -i.bak "s|${1}|${2}|g"
+    if (( $# < 2 )) || [[ ! -d "${3:-.}/.git" ]]; then return 1; fi
+    find -L "${3:-.}" -type f -print0 | xargs -0 sed -i "s|${1}|${2}|g"
 }
 
