@@ -50,7 +50,7 @@ function vz {
 }
 
 function fs {
-    if (( $# < 2 )) || [[ ! -d "${3:-.}/.git" ]]; then return 1; fi
+    if (( $# < 2 )) || ! git -C "${3:-.}" rev-parse --is-inside-work-tree &>/dev/null; then return 1; fi
     find -L "${3:-.}" -type f -print0 | xargs -0 sed -i "s|${1}|${2}|g"
 }
 
